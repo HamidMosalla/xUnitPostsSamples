@@ -1,5 +1,5 @@
 # xUnitPostsSamples
-Sample codes related to my xUnit post series
+This repository contains sample codes related to a series of posts on my [blog](http://hamidmosalla.com) related to xunit. You can find the links to these posts down below.
 
 [xUnit: Share an SUT Instance Between Two Class Using Collection](http://hamidmosalla.com/2018/07/31/xunit-share-an-sut-instance-between-two-class-using-collection/)
 
