@@ -3,8 +3,6 @@ using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
-[assembly: TestCollectionOrderer("xUnitSandbox.OrderTests.OrderTestCollection", "xUnitSandbox.OrderTests")]
-
 namespace xUnitSandbox.OrderTests
 {
     public class OrderTestCollection : ITestCollectionOrderer
