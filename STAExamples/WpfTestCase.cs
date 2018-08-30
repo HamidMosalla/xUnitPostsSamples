@@ -34,6 +34,9 @@ namespace STAExamples
             get { return testCase.Method; }
         }
 
+        public int Timeout { get; }
+        public Exception InitializationException { get; }
+
         public Task<RunSummary> RunAsync(IMessageSink diagnosticMessageSink,
                                          IMessageBus messageBus,
                                          object[] constructorArguments,
