@@ -3,7 +3,7 @@ using System.Linq;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace XunitExtensions
+namespace ObservationExample.XunitExtensions
 {
     public class ObservationDiscoverer : TestFrameworkDiscoverer
     {

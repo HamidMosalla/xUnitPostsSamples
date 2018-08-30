@@ -1,46 +1,47 @@
 ﻿using System;
 using Xunit;
-using Xunit.Extensions.AssertExtensions;
 
-
-public class ExampleFacts
+namespace AssertExtensions
 {
-    public class BooleanFacts
+    public class ExampleFacts
     {
-        [Fact]
-        public void ShouldBeTrue()
+        public class BooleanFacts
         {
-            Boolean val = true;
+            [Fact]
+            public void ShouldBeTrue()
+            {
+                Boolean val = true;
 
-            val.ShouldBeTrue(); 
-        }
+                val.ShouldBeTrue(); 
+            }
 
-        [Fact]
-        public void ShouldBeFalse()
-        {
-            Boolean val = false;
+            [Fact]
+            public void ShouldBeFalse()
+            {
+                Boolean val = false;
 
-            val.ShouldBeFalse();
-        }
+                val.ShouldBeFalse();
+            }
 
-        [Fact]
-        public void ShouldBeTrueWithMessage()
-        {
-            Boolean val = false;
+            [Fact]
+            public void ShouldBeTrueWithMessage()
+            {
+                Boolean val = false;
 
-            Exception exception = Record.Exception(() => val.ShouldBeTrue("should be true"));
+                Exception exception = Record.Exception(() => val.ShouldBeTrue("should be true"));
 
-            Assert.StartsWith("should be true", exception.Message); 
-        }
+                Assert.StartsWith("should be true", exception.Message); 
+            }
 
-        [Fact]
-        public void ShouldBeFalseWithMessage()
-        {
-            Boolean val = true;
+            [Fact]
+            public void ShouldBeFalseWithMessage()
+            {
+                Boolean val = true;
 
-            Exception exception = Record.Exception(() => val.ShouldBeFalse("should be false"));
+                Exception exception = Record.Exception(() => val.ShouldBeFalse("should be false"));
 
-            Assert.StartsWith("should be false", exception.Message);
+                Assert.StartsWith("should be false", exception.Message);
+            }
         }
     }
 }

@@ -5,33 +5,36 @@ using Xunit;
 // Can't get these tests to run? Make sure you've installed LocalDB, a feature in the (free) SQL Server Express.
 // Note that you don't need the "instance" server of SQL Express, just the LocalDB feature.
 
-public class ClassFixtureTests : IClassFixture<DatabaseFixture>
+namespace ClassFixtureExample
 {
-    DatabaseFixture database;
-
-    public ClassFixtureTests(DatabaseFixture data)
+    public class ClassFixtureTests : IClassFixture<DatabaseFixture>
     {
-        database = data;
-    }
+        DatabaseFixture database;
 
-    [Fact]
-    public void ConnectionIsEstablished()
-    {
-        Assert.NotNull(database.Connection);
-    }
-
-    [Fact]
-    public void FooUserWasInserted()
-    {
-        string sql = "SELECT COUNT(*) FROM Users WHERE ID = @id;";
-
-        using (SqlCommand cmd = new SqlCommand(sql, database.Connection))
+        public ClassFixtureTests(DatabaseFixture data)
         {
-            cmd.Parameters.AddWithValue("@id", database.FooUserID);
+            database = data;
+        }
 
-            int rowCount = Convert.ToInt32(cmd.ExecuteScalar());
+        [Fact]
+        public void ConnectionIsEstablished()
+        {
+            Assert.NotNull(database.Connection);
+        }
 
-            Assert.Equal(1, rowCount);
+        [Fact]
+        public void FooUserWasInserted()
+        {
+            string sql = "SELECT COUNT(*) FROM Users WHERE ID = @id;";
+
+            using (SqlCommand cmd = new SqlCommand(sql, database.Connection))
+            {
+                cmd.Parameters.AddWithValue("@id", database.FooUserID);
+
+                int rowCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                Assert.Equal(1, rowCount);
+            }
         }
     }
 }

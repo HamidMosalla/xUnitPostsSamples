@@ -1,8 +1,7 @@
 ﻿using Xunit;
 using Xunit.Abstractions;
-using Xunit.Sdk;
 
-namespace XunitExtensions
+namespace ObservationExample.XunitExtensions
 {
     public class ObservationTest : LongLivedMarshalByRefObject, ITest
     {

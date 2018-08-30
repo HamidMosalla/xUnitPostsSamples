@@ -4,7 +4,7 @@ using System.Reflection;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace XunitExtensions
+namespace ObservationExample.XunitExtensions
 {
     public class ObservationExecutor : TestFrameworkExecutor<ObservationTestCase>
     {

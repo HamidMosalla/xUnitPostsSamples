@@ -1,12 +1,15 @@
 ﻿using System;
 
-[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-public class TestPriorityAttribute : Attribute
+namespace TestOrderExamples.TestCaseOrdering
 {
-    public TestPriorityAttribute(int priority)
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public class TestPriorityAttribute : Attribute
     {
-        Priority = priority;
-    }
+        public TestPriorityAttribute(int priority)
+        {
+            Priority = priority;
+        }
 
-    public int Priority { get; private set; }
+        public int Priority { get; private set; }
+    }
 }

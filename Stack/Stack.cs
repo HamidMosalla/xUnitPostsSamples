@@ -2,37 +2,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Stack<T>
+namespace Stack
 {
-    List<T> elements = new List<T>();
-
-    public int Count
+    public class Stack<T>
     {
-        get { return elements.Count; }
-    }
+        List<T> elements = new List<T>();
 
-    public bool Contains(T element)
-    {
-        return elements.Contains(element);
-    }
+        public int Count
+        {
+            get { return elements.Count; }
+        }
 
-    public T Peek()
-    {
-        if (Count == 0)
-            throw new InvalidOperationException("empty stack");
+        public bool Contains(T element)
+        {
+            return elements.Contains(element);
+        }
 
-        return elements.Last();
-    }
+        public T Peek()
+        {
+            if (Count == 0)
+                throw new InvalidOperationException("empty stack");
 
-    public T Pop()
-    {
-        T element = Peek();
-        elements.RemoveAt(Count - 1);
-        return element;
-    }
+            return elements.Last();
+        }
 
-    public void Push(T element)
-    {
-        elements.Add(element);
+        public T Pop()
+        {
+            T element = Peek();
+            elements.RemoveAt(Count - 1);
+            return element;
+        }
+
+        public void Push(T element)
+        {
+            elements.Add(element);
+        }
     }
 }

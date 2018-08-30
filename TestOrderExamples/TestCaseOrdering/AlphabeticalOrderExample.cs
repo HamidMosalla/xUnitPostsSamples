@@ -1,36 +1,39 @@
 ﻿using Xunit;
 
-[TestCaseOrderer("TestOrderExamples.TestCaseOrdering.AlphabeticalOrderer", "TestOrderExamples")]
-public class AlphabeticalOrderExample
+namespace TestOrderExamples.TestCaseOrdering
 {
-    public static bool Test1Called;
-    public static bool Test2Called;
-    public static bool Test3Called;
-
-    [Fact]
-    public void Test1()
+    [TestCaseOrderer("TestOrderExamples.TestCaseOrdering.AlphabeticalOrderer", "TestOrderExamples")]
+    public class AlphabeticalOrderExample
     {
-        Test1Called = true;
+        public static bool Test1Called;
+        public static bool Test2Called;
+        public static bool Test3Called;
 
-        Assert.False(Test2Called);
-        Assert.False(Test3Called);
-    }
+        [Fact]
+        public void Test1()
+        {
+            Test1Called = true;
 
-    [Fact]
-    public void Test2()
-    {
-        Test2Called = true;
+            Assert.False(Test2Called);
+            Assert.False(Test3Called);
+        }
 
-        Assert.True(Test1Called);
-        Assert.False(Test3Called);
-    }
+        [Fact]
+        public void Test2()
+        {
+            Test2Called = true;
 
-    [Fact]
-    public void Test3()
-    {
-        Test3Called = true;
+            Assert.True(Test1Called);
+            Assert.False(Test3Called);
+        }
 
-        Assert.True(Test1Called);
-        Assert.True(Test2Called);
+        [Fact]
+        public void Test3()
+        {
+            Test3Called = true;
+
+            Assert.True(Test1Called);
+            Assert.True(Test2Called);
+        }
     }
 }

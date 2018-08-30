@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace XunitExtensions
+namespace ObservationExample.XunitExtensions
 {
     public class ObservationAssemblyRunner : TestAssemblyRunner<ObservationTestCase>
     {

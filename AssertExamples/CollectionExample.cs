@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace AssertExtensibility
+namespace AssertExamples
 {
     // Collection equivalence means the collections have the exact same values
     // in any order.

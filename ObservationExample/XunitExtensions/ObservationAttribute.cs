@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XunitExtensions
+namespace ObservationExample.XunitExtensions
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class ObservationAttribute : Attribute { }

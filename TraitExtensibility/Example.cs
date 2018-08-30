@@ -1,11 +1,13 @@
-using System.Threading;
 using Xunit;
 
-public class Example
+namespace TraitExtensibility
 {
-    [Fact, Category("Trait")]
-    public void ExampleFact()
+    public class Example
     {
-        Assert.True(true); 
+        [Fact, Category("Trait")]
+        public void ExampleFact()
+        {
+            Assert.True(true); 
+        }
     }
 }

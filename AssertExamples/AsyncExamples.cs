@@ -2,31 +2,34 @@
 using System.Threading.Tasks;
 using Xunit;
 
-public class AsyncExamples
+namespace AssertExamples
 {
-    [Fact]
-    public async void CodeThrowsAsync()
+    public class AsyncExamples
     {
-        Func<Task> testCode = () => Task.Factory.StartNew(ThrowingMethod);
+        [Fact]
+        public async void CodeThrowsAsync()
+        {
+            Func<Task> testCode = () => Task.Factory.StartNew(ThrowingMethod);
 
-        var ex = await Assert.ThrowsAsync<NotImplementedException>(testCode);
+            var ex = await Assert.ThrowsAsync<NotImplementedException>(testCode);
 
-        Assert.IsType<NotImplementedException>(ex);
-    }
+            Assert.IsType<NotImplementedException>(ex);
+        }
 
-    [Fact]
-    public async void RecordAsync()
-    {
-        Func<Task> testCode = () => Task.Factory.StartNew(ThrowingMethod);
+        [Fact]
+        public async void RecordAsync()
+        {
+            Func<Task> testCode = () => Task.Factory.StartNew(ThrowingMethod);
 
-        var ex = await Record.ExceptionAsync(testCode);
+            var ex = await Record.ExceptionAsync(testCode);
 
-        Assert.IsType<NotImplementedException>(ex);
-    }
+            Assert.IsType<NotImplementedException>(ex);
+        }
 
-    void ThrowingMethod()
-    {
-        throw new NotImplementedException();
+        void ThrowingMethod()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

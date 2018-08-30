@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Xunit;
 
-namespace Xunit.Extensions.AssertExtensions
+namespace AssertExtensions
 {
     /// <summary>
     /// Extensions which provide assertions to classes derived from <see cref="IEnumerable"/> and <see cref="IEnumerable&lt;T&gt;"/>.
