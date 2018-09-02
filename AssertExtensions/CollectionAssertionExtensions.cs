@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Sdk;
 
 namespace AssertExtensions
 {
