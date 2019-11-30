@@ -1,7 +1,6 @@
 ﻿using System;
-using Xunit;
 
-namespace AssertExtensions
+namespace Xunit.Extensions.AssertExtensions
 {
     /// <summary>
     /// Extensions which provide assertions to classes derived from <see cref="String"/>.

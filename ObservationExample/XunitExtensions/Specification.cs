@@ -1,4 +1,4 @@
-﻿namespace ObservationExample.XunitExtensions
+﻿namespace XunitExtensions
 {
     public abstract class Specification
     {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Reflection;
 using System.Transactions;
-using Xunit;
 using Xunit.Sdk;
 
 namespace AutoRollbackExample
@@ -58,31 +56,6 @@ namespace AutoRollbackExample
                 options.Timeout = TimeSpan.FromMilliseconds(TimeoutInMS);
 
             scope = new TransactionScope(ScopeOption, options, AsyncFlowOption);
-        }
-    }
-
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-    public class TestBeforeAfter : BeforeAfterTestAttribute
-    {
-
-        public override void Before(MethodInfo methodUnderTest)
-        {
-            Debug.WriteLine(methodUnderTest.Name);
-        }
-
-        public override void After(MethodInfo methodUnderTest)
-        {
-            Debug.WriteLine(methodUnderTest.Name);
-        }
-    }
-
-    public class TestBeforeAfterTests
-    {
-        [Fact]
-        [TestBeforeAfter]
-        public void TestBeforeAfter_Should_RunBeforeAndAfterTest()
-        {
-
         }
     }
 }

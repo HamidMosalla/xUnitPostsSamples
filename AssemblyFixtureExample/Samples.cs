@@ -1,5 +1,4 @@
 ﻿using System;
-using AssemblyFixtureExample;
 using Xunit;
 
 // The custom test framework enables the support
@@ -10,54 +9,51 @@ using Xunit;
 // get cleaned up at the end of the test run.
 [assembly: AssemblyFixture(typeof(MyAssemblyFixture))]
 
-namespace AssemblyFixtureExample
+public class Sample1
 {
-    public class Sample1
+    MyAssemblyFixture fixture;
+
+    // Fixtures are injectable into the test classes, just like with class and collection fixtures
+    public Sample1(MyAssemblyFixture fixture)
     {
-        MyAssemblyFixture fixture;
-
-        // Fixtures are injectable into the test classes, just like with class and collection fixtures
-        public Sample1(MyAssemblyFixture fixture)
-        {
-            this.fixture = fixture;
-        }
-
-        [Fact]
-        public void EnsureSingleton()
-        {
-            Assert.Equal(1, MyAssemblyFixture.InstantiationCount);
-        }
+        this.fixture = fixture;
     }
 
-    public class Sample2
+    [Fact]
+    public void EnsureSingleton()
     {
-        MyAssemblyFixture fixture;
+        Assert.Equal(1, MyAssemblyFixture.InstantiationCount);
+    }
+}
 
-        public Sample2(MyAssemblyFixture fixture)
-        {
-            this.fixture = fixture;
-        }
+public class Sample2
+{
+    MyAssemblyFixture fixture;
 
-        [Fact]
-        public void EnsureSingleton()
-        {
-            Assert.Equal(1, MyAssemblyFixture.InstantiationCount);
-        }
+    public Sample2(MyAssemblyFixture fixture)
+    {
+        this.fixture = fixture;
     }
 
-    public class MyAssemblyFixture : IDisposable
+    [Fact]
+    public void EnsureSingleton()
     {
-        public static int InstantiationCount;
+        Assert.Equal(1, MyAssemblyFixture.InstantiationCount);
+    }
+}
 
-        public MyAssemblyFixture()
-        {
-            InstantiationCount++;
-        }
+public class MyAssemblyFixture : IDisposable
+{
+    public static int InstantiationCount;
 
-        public void Dispose()
-        {
-            // Uncomment this and it will surface as an assembly cleanup failure
-            //throw new DivideByZeroException();
-        }
+    public MyAssemblyFixture()
+    {
+        InstantiationCount++;
+    }
+
+    public void Dispose()
+    {
+        // Uncomment this and it will surface as an assembly cleanup failure
+        //throw new DivideByZeroException();
     }
 }

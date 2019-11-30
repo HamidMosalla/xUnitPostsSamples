@@ -34,9 +34,6 @@ namespace STAExamples
             get { return testCase.Method; }
         }
 
-        public int Timeout { get; }
-        public Exception InitializationException { get; }
-
         public Task<RunSummary> RunAsync(IMessageSink diagnosticMessageSink,
                                          IMessageBus messageBus,
                                          object[] constructorArguments,
@@ -120,6 +117,10 @@ namespace STAExamples
         {
             get { return testCase.UniqueID; }
         }
+
+        public Exception InitializationException => throw new NotImplementedException();
+
+        public int Timeout => throw new NotImplementedException();
 
         public void Deserialize(IXunitSerializationInfo info)
         {

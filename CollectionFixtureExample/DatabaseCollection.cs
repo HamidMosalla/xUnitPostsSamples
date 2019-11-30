@@ -1,9 +1,11 @@
-﻿using Xunit;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
 
-namespace CollectionFixtureExample
+[CollectionDefinition("DatabaseCollection")]
+public class DatabaseCollection : ICollectionFixture<DatabaseFixture>
 {
-    [CollectionDefinition("DatabaseCollection")]
-    public class DatabaseCollection : ICollectionFixture<DatabaseFixture>
-    {
-    }
 }

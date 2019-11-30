@@ -1,8 +1,6 @@
 ﻿using System;
-using Xunit;
-using Xunit.Sdk;
 
-namespace AssertExtensions
+namespace Xunit.Extensions.AssertExtensions
 {
     /// <summary>
     /// Extensions which provide assertions to classes derived from <see cref="Boolean"/>.

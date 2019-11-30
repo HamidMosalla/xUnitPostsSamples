@@ -1,39 +1,36 @@
 using System;
 using System.Collections.Generic;
 
-namespace ObservationExample
+class Stack<T>
 {
-    class Stack<T>
+    readonly LinkedList<T> elements = new LinkedList<T>();
+
+    public bool IsEmpty
     {
-        readonly LinkedList<T> elements = new LinkedList<T>();
+        get { return elements.Count == 0; }
+    }
 
-        public bool IsEmpty
+    public void Push(T element)
+    {
+        elements.AddFirst(element);
+    }
+
+    public T Peek
+    {
+        get
         {
-            get { return elements.Count == 0; }
+            if (elements.Count == 0)
+                throw new InvalidOperationException("cannot top an empty stack");
+
+            return elements.First.Value;
         }
+    }
 
-        public void Push(T element)
-        {
-            elements.AddFirst(element);
-        }
+    public T Pop()
+    {
+        T top = Peek;
+        elements.RemoveFirst();
 
-        public T Peek
-        {
-            get
-            {
-                if (elements.Count == 0)
-                    throw new InvalidOperationException("cannot top an empty stack");
-
-                return elements.First.Value;
-            }
-        }
-
-        public T Pop()
-        {
-            T top = Peek;
-            elements.RemoveFirst();
-
-            return top;
-        }
+        return top;
     }
 }

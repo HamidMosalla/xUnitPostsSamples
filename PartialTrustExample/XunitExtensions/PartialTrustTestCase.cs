@@ -7,10 +7,6 @@ namespace PartialTrustExample.XunitExtensions
 {
     public class PartialTrustTestCase : XunitTestCase
     {
-        public PartialTrustTestCase()
-        {
-        }
-
         public PartialTrustTestCase(IMessageSink diagnosticMessageSink, TestMethodDisplay defaultMethodDisplay, ITestMethod testMethod)
             : base(diagnosticMessageSink, defaultMethodDisplay, testMethod) { }
 

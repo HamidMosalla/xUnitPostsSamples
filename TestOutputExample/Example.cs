@@ -1,21 +1,19 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 using Xunit.Abstractions;
 
-namespace TestOutputExample
+public class Example
 {
-    public class Example
+    ITestOutputHelper output;
+
+    public Example(ITestOutputHelper output)
     {
-        ITestOutputHelper output;
+        this.output = output;
+    }
 
-        public Example(ITestOutputHelper output)
-        {
-            this.output = output;
-        }
-
-        [Fact]
-        public void TestThis()
-        {
-            output.WriteLine("I'm inside the test!");
-        }
+    [Fact]
+    public void TestThis()
+    {
+        output.WriteLine("I'm inside the test!");
     }
 }

@@ -1,17 +1,14 @@
 using System;
 using Xunit.Sdk;
 
-namespace TraitExtensibility
+/// <summary>
+/// Apply this attribute to your test method to specify a category.
+/// </summary>
+[TraitDiscoverer("CategoryDiscoverer", "TraitExtensibility")]
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+class CategoryAttribute : Attribute, ITraitAttribute
 {
-    /// <summary>
-    /// Apply this attribute to your test method to specify a category.
-    /// </summary>
-    [TraitDiscoverer("CategoryDiscoverer", "TraitExtensibility")]
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    class CategoryAttribute : Attribute, ITraitAttribute
-    {
-        public CategoryAttribute(string category) { }
-    }
+    public CategoryAttribute(string category) { }
 }
 
 

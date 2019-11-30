@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace ObservationExample.XunitExtensions
+namespace XunitExtensions
 {
     public class ObservationTestCase : TestMethodTestCase
     {

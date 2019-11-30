@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace ObservationExample.XunitExtensions
+namespace XunitExtensions
 {
     public class ObservationTestRunner : TestRunner<ObservationTestCase>
     {

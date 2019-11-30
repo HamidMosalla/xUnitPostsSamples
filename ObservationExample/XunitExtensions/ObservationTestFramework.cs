@@ -2,7 +2,7 @@
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace ObservationExample.XunitExtensions
+namespace XunitExtensions
 {
     public class ObservationTestFramework : TestFramework
     {
